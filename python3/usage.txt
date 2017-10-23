@@ -1,0 +1,173 @@
+
+USAGE (clap.py)
+
+    Contents:
+
+        1.  Available methods
+          1.1  Method "add_avalue"
+          1.2  Method "add_predef"
+          1.3  Method "add_switch"
+        2.  Usage example
+
+    1. Available methods
+
+        1.1 Method "add_avalue"
+
+            Add an argument that expects a single user-defined value.
+
+                p.add_avalue(arg_short, arg_long, arg_help, arg_dest,
+                             arg_default, arg_required)
+
+            Parameters:
+
+                arg_short       = Short form of the command-line argument.
+                                  Expects either a string (e. g. '-i') or
+                                  None.
+
+                arg_long        = Short form of the command-line argument.
+                                  Expects a string (e. g. '--input-file').
+
+                arg_help        = Description for the argument. Expects a
+                                  string (e. g. "source file where to read the
+                                  data from").
+
+                arg_dest        = Name of the variable inside the argument
+                                  parser the passed value will be stored in,
+                                  e. g. 'input_file').
+
+                arg_default     = Default value. Can be a string, integer or
+                                  None.
+
+                arg_required    = Boolean value if the command-line argument
+                                  whether or not is required.
+
+        1.2 Method "add_predef"
+
+            Add an argument that expects a certain predefined value.
+
+                p.add_predef(arg_short, arg_long, arg_help, arg_dest,
+                             arg_choices, arg_required)
+
+            Parameters:
+
+                arg_short       = Short form of the command-line argument.
+                                  Expects either a string (e. g. '-a') or
+                                  None.
+
+                arg_long        = Short form of the command-line argument.
+                                  Expects a string (e. g. '--action').
+
+                arg_help        = Description for the argument. Expects a
+                                  string (e. g. "action to perform on the
+                                  input file").
+
+                arg_dest        = Name of the variable inside the argument
+                                  parser the passed value will be stored in,
+                                  e. g. 'input_file').
+
+                arg_choices     = List of predefined values to choose from,
+                                  e. g. '["print", "read", "write"]'.
+
+                arg_required    = Boolean value if the command-line argument
+                                  whether or not is required.
+
+        1.3 Method "add_switch"
+
+            Add an argument that does not expect anything, but returns a
+            boolean value.
+
+                p.add_switch(arg_short, arg_long, arg_help, arg_dest,
+                             arg_store, arg_required)
+
+            Parameters:
+
+                arg_short       = Short form of the command-line argument.
+                                  Expects either a string (e. g. '-a') or
+                                  None.
+
+                arg_long        = Short form of the command-line argument.
+                                  Expects a string (e. g. '--action').
+
+                arg_help        = Description for the argument. Expects a
+                                  string (e. g. "action to perform on the
+                                  input file").
+
+                arg_dest        = Name of the variable inside the argument
+                                  parser the passed value will be stored in,
+                                  e. g. 'input_file').
+
+                arg_store       = Boolean value that will be returned when the
+                                  argument is given. Either True or False.
+
+                arg_required    = Boolean value if the command-line argument
+                                  whether or not is required.
+
+    2. Usage example
+
+        Below is a simple usage example for the Clap module.
+
+            import clap
+            import sys
+
+            p = clap.Parser()
+
+            p.set_description("Read a file and write its content into " \
+                              "another.")
+            p.set_epilog("Further information and usage examples can be " \
+                         "found inside the documentation file for this " \
+                         "script.")
+
+            # Required arguments
+            p.add_avalue("-i", "--input-file", "source file where to read " \
+                         "the data from", "input_file", None, True)
+            p.add_avalue("-o", "--output-file", "destination file where to " \
+                         "write data into", "output_file", None, True)
+            p.add_predef("-t", "--file-type", "type of the file", "file_type",
+                         ["binary", "raw"], True)
+
+            # Optional arguments
+            p.add_avalue("-b", "--buffer-size", "buffer size in bytes",
+                         "buffer_size", 4096, False)
+            p.add_switch("-s", "--simulate", "do not create the output file",
+                         "simulate", True, False)
+
+            if len(sys.argv) == 1:
+                p.error("At least one required argument is missing.")
+            elif ("-h" in sys.argv) or ("--help" in sys.argv):
+                p.print_help()
+                sys.exit(0)
+
+            args = p.parse_args()
+
+        Now, when running the script with the argument '-h' (or '--help'), it will
+        print something like this:
+
+            usage: foobar.py -i INPUT_FILE -o OUTPUT_FILE [-b BUFFER_SIZE] [-s]
+
+            Read a file and write its content into another.
+
+            required arguments:
+              -i INPUT_FILE, --input-file INPUT_FILE
+                                    source file where to read the data from
+              -o OUTPUT_FILE, --output-file OUTPUT_FILE
+                                    destination file where to write data into
+              -t {binary,raw}, --file-type {binary,raw}
+                                    type of the file
+
+            optional arguments:
+              -b BUFFER_SIZE, --buffer-size BUFFER_SIZE
+                                    buffer size in bytes (default is 4096)
+              -s, --simulate        do not create the output file
+
+            Further information and usage examples can be found inside the
+            documentation file for this script.
+
+        Inside the code you can use the given command-line arguments as follows,
+        e. g. to return each of them:
+
+            print("Input file path:  %s" % args.input_file)
+            print("Output file path: %s" % args.output_file)
+            print("File type:        %s" % args.file_type)
+            print("Buffer size:      %s" % str(args.buffer_size))
+            print("Simulate:         %s" % str(args.simulate))
+
