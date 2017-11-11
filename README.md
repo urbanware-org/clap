@@ -19,6 +19,6 @@ The current version of *Clap* provides a parser object which can parse arguments
 ## Useless facts
 
 * The project name is an abbreviation for ***C****ommand* ***L****ine* ***A****grument* ***P****arser*.
-* The first version uploaded on *GitHub* was *Clap* 1.1.8 built on January 15th, 2015.
+* The first version uploaded on *GitHub* was *Clap* 1.1.8 built on January 15<sup>th</sup>, 2015.
 * The module for *Python* 3 was created by converting the *Python* 2 module using the *2to3* tool. However, both files are identical except for the shebang.
 
