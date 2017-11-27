@@ -13,7 +13,7 @@
 
 The *Clap* module is an easy-to-use command-line argument parser for *Python* projects.
 
-[Top](#clap-)
+[Top](#)
 
 ## Details
 
@@ -27,7 +27,7 @@ The current version of *Clap* provides a parser object which can parse arguments
 * that expect a certain value (from a predefined list of options).
 * that do not expect anything, but return a Boolean value (e. g. to set a variable to `True` when given).
 
-[Top](#clap-)
+[Top](#)
 
 ## Requirements
 
@@ -38,13 +38,13 @@ Depending on which version of the framework you are using:
 * *Python* 2.x (version 2.7 or higher is recommended, may also work with earlier versions)
 * *Python* 3.x (version 3.2 or higher is recommended, may also work with earlier versions)
 
-[Top](#clap-)
+[Top](#)
 
 ## Documentation
 
 There is a plain text file inside the corresponding directories with further information and usage examples.
 
-[Top](#clap-)
+[Top](#)
 
 ## Useless facts
 
@@ -52,5 +52,5 @@ There is a plain text file inside the corresponding directories with further inf
 * The first version uploaded on *GitHub* was *Clap* 1.1.8 built on January 15<sup>th</sup>, 2015.
 * The module for *Python* 3 was created by converting the *Python* 2 module using the *2to3* tool. However, both files are identical except for the shebang.
 
-[Top](#clap-)
+[Top](#)
 
