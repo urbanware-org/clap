@@ -1,11 +1,11 @@
 # *Clap*
 
 **Table of contents**
-* [Definition](#definition)
-* [Details](#details)
-* [Requirements](#requirements)
-* [Documentation](#documentation)
-* [Useless facts](#useless-facts)
+*   [Definition](#definition)
+*   [Details](#details)
+*   [Requirements](#requirements)
+*   [Documentation](#documentation)
+*   [Useless facts](#useless-facts)
 
 ----
 
