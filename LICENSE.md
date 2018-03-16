@@ -2,7 +2,7 @@
 
 ***Clap*** - Command-line argument parser module
 
-Copyright &copy; 2017 by Ralf Kilian
+Copyright &copy; 2018 by Ralf Kilian
 
 Distributed under the *MIT License*:
 
