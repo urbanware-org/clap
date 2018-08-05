@@ -8,6 +8,7 @@ README (Clap)
         Copyright (C) 2018 by Ralf Kilian
 
         GitHub: https://github.com/urbanware-org/clap
+        GitLab: https://gitlab.com/urbanware-org/clap
 
     Definition
 

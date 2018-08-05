@@ -7,6 +7,7 @@
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #
 # GitHub: https://github.com/urbanware-org/clap
+# GitLab: https://gitlab.com/urbanware-org/clap
 # ============================================================================
 
 __version__ = "1.1.10"
