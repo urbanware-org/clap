@@ -15,6 +15,15 @@ README (Clap)
         The Clap module is an easy-to-use command-line argument parser for
         Python projects.
 
+    Notice
+
+        This is the last official version for the Python 2.x framework. If you
+        need later versions for that framework for whatever reason, you can
+        try refactoring the syntax from Python 3.x to version 2.x using the
+        '3to2' tool.
+
+        However, there is no guarantee that this works properly or at all.
+
     License
 
         Permission is hereby granted, free of charge, to any person obtaining
