@@ -20,7 +20,7 @@ def get_version():
     return __version__
 
 
-class Parser(object):
+class Parser():
     """
         Project independent command-line argument parser class.
     """
@@ -180,7 +180,7 @@ class Parser(object):
             Raise an error and cause the argument parser to print the error
             message.
         """
-        if type(obj) == str:
+        if isinstance(obj, str):
             obj = obj.strip()
 
         self.__arg_parser.error(obj)
