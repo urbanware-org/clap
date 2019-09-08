@@ -3,14 +3,14 @@
 
 # ============================================================================
 # Clap - Command-line argument parser module
-# Copyright (C) 2018 by Ralf Kilian
+# Copyright (C) 2019 by Ralf Kilian
 # Distributed under the MIT License (https://opensource.org/licenses/MIT)
 #
 # GitHub: https://github.com/urbanware-org/clap
 # GitLab: https://gitlab.com/urbanware-org/clap
 # ============================================================================
 
-__version__ = "1.1.10"
+__version__ = "1.1.11"
 
 
 def get_version():
