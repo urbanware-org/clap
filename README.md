@@ -34,7 +34,7 @@ The current version of *Clap* provides a parser object which can parse arguments
 
 In order to run the latest version of *Clap*, the *Python* 3.x framework (version 3.2 or higher is recommended) must be installed on the system.
 
-Version 1.1.10 is the last official release that also runs on the *Python* 2.x framework.
+Version 1.1.11 is the last official release that also runs on the *Python* 2.x framework.
 
 If you need a later version for the *Python* 2.x framework for whatever reason, you can try refactoring the syntax from *Python* 3.x to version 2.x using the *[3to2](https://pypi.python.org/pypi/3to2)* tool.
 
