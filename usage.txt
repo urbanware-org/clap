@@ -21,19 +21,19 @@ USAGE (clap.py)
             Parameters:
 
                 arg_short       = Short form of the command-line argument.
-                                  Expects either a string (e. g. '-i') or
+                                  Expects either a string (e.g. '-i') or
                                   None.
 
                 arg_long        = Short form of the command-line argument.
-                                  Expects a string (e. g. '--input-file').
+                                  Expects a string (e.g. '--input-file').
 
                 arg_help        = Description for the argument. Expects a
-                                  string (e. g. "source file where to read the
+                                  string (e.g. "source file where to read the
                                   data from").
 
                 arg_dest        = Name of the variable inside the argument
                                   parser the passed value will be stored in,
-                                  e. g. 'input_file').
+                                  e.g. 'input_file').
 
                 arg_default     = Default value. Can be a string, integer or
                                   None.
@@ -51,22 +51,22 @@ USAGE (clap.py)
             Parameters:
 
                 arg_short       = Short form of the command-line argument.
-                                  Expects either a string (e. g. '-a') or
+                                  Expects either a string (e.g. '-a') or
                                   None.
 
                 arg_long        = Short form of the command-line argument.
-                                  Expects a string (e. g. '--action').
+                                  Expects a string (e.g. '--action').
 
                 arg_help        = Description for the argument. Expects a
-                                  string (e. g. "action to perform on the
+                                  string (e.g. "action to perform on the
                                   input file").
 
                 arg_dest        = Name of the variable inside the argument
                                   parser the passed value will be stored in,
-                                  e. g. 'input_file').
+                                  e.g. 'input_file').
 
                 arg_choices     = List of predefined values to choose from,
-                                  e. g. '["print", "read", "write"]'.
+                                  e.g. '["print", "read", "write"]'.
 
                 arg_required    = Boolean value if the command-line argument
                                   whether or not is required.
@@ -82,19 +82,19 @@ USAGE (clap.py)
             Parameters:
 
                 arg_short       = Short form of the command-line argument.
-                                  Expects either a string (e. g. '-a') or
+                                  Expects either a string (e.g. '-a') or
                                   None.
 
                 arg_long        = Short form of the command-line argument.
-                                  Expects a string (e. g. '--action').
+                                  Expects a string (e.g. '--action').
 
                 arg_help        = Description for the argument. Expects a
-                                  string (e. g. "action to perform on the
+                                  string (e.g. "action to perform on the
                                   input file").
 
                 arg_dest        = Name of the variable inside the argument
                                   parser the passed value will be stored in,
-                                  e. g. 'input_file').
+                                  e.g. 'input_file').
 
                 arg_store       = Boolean value that will be returned when the
                                   argument is given. Either True or False.
@@ -163,7 +163,7 @@ USAGE (clap.py)
             documentation file for this script.
 
         Inside the code you can use the given command-line arguments as follows,
-        e. g. to return each of them:
+        e.g. to return each of them:
 
             print("Input file path:  %s" % args.input_file)
             print("Output file path: %s" % args.output_file)
