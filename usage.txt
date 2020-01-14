@@ -24,7 +24,7 @@ USAGE (clap.py)
                                   Expects either a string (e.g. '-i') or
                                   None.
 
-                arg_long        = Short form of the command-line argument.
+                arg_long        = Long form of the command-line argument.
                                   Expects a string (e.g. '--input-file').
 
                 arg_help        = Description for the argument. Expects a
@@ -54,7 +54,7 @@ USAGE (clap.py)
                                   Expects either a string (e.g. '-a') or
                                   None.
 
-                arg_long        = Short form of the command-line argument.
+                arg_long        = Long form of the command-line argument.
                                   Expects a string (e.g. '--action').
 
                 arg_help        = Description for the argument. Expects a
@@ -85,7 +85,7 @@ USAGE (clap.py)
                                   Expects either a string (e.g. '-a') or
                                   None.
 
-                arg_long        = Short form of the command-line argument.
+                arg_long        = Long form of the command-line argument.
                                   Expects a string (e.g. '--action').
 
                 arg_help        = Description for the argument. Expects a
