@@ -44,7 +44,7 @@ However, there is no guarantee that this works properly or at all.
 
 ## Documentation
 
-There is a plain text file inside the corresponding directories with further information and usage examples.
+Further information and usage examples can be found inside the `usage.txt` file.
 
 [Top](#clap)
 
