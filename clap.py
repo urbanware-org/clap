@@ -27,7 +27,10 @@ class Parser():
 
     def __init__(self, conflict_handler_resolve=True):
         # The conflict handler is required for OptionParser, only
-        self.conflict_handler_resolve = conflict_handler_resolve
+        if conflict_handler_resolve:
+            self.conflict_handler_resolve = "resolve"
+        else:
+            self.conflict_handler_resolve = "error"
 
         self.__is_argparser = True
         try:
