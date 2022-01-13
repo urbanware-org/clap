@@ -214,5 +214,3 @@ class Parser():
             Set the epilog text.
         """
         self.__arg_parser.epilog = string.strip()
-
-# EOF
