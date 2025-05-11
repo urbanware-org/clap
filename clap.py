@@ -127,7 +127,7 @@ class Parser():
                 # the argument first
                 arg_help += " (choose from "
                 for item in arg_choices:
-                    arg_help += "'%s', " % item
+                    arg_help += f"'{item}', "
                 arg_help = arg_help.rstrip(", ") + ")"
 
                 obj.add_option(arg_short, arg_long, help=arg_help,
@@ -171,8 +171,8 @@ class Parser():
         """
         if dependency is not None:
             if arg_value is None or str(arg_value) == "":
-                raise ValueError("The '%s' argument depends on %s'." %
-                                 (arg_name, dependency))
+                raise ValueError(
+                    f"The '{arg_name}' argument depends on '{dependency}'.")
 
     def error(self, obj):
         """
