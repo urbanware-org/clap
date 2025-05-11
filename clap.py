@@ -71,20 +71,17 @@ class Parser():
 
         if arg_default is not None:
             # Enclose the value with quotes in case it is not an integer
-            quotes = "'"
-            try:
-                arg_default = int(arg_default)
+            if isinstance(arg_default, int):
                 quotes = ""
-            except ValueError:
-                pass
+            else:
+                quotes = "'"
 
             if arg_help.strip().endswith(")"):
+                arg_default = str(arg_default)
                 arg_help = arg_help.rstrip(")")
-                arg_help += ", default is %s%s%s)" % \
-                    (quotes, str(arg_default), quotes)
+                arg_help += f", default is {quotes}{arg_default}{quotes})"
             else:
-                arg_help += " (default is %s%s%s)" % \
-                    (quotes, str(arg_default), quotes)
+                arg_help += f", default is {quotes}{arg_default}{quotes})"
 
         if self.__is_argparser:
             if arg_short is None:
