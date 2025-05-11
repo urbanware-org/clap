@@ -139,10 +139,11 @@ USAGE (clap.py)
 
             args = p.parse_args()
 
-        Now, when running the script with the argument '-h' (or '--help'), it will
-        print something like this:
+        Now, when running the script with the argument '-h' (or '--help'), it
+        will print something like this:
 
-            usage: foobar.py -i INPUT_FILE -o OUTPUT_FILE [-b BUFFER_SIZE] [-s]
+            usage: \
+                foobar.py -i INPUT_FILE -o OUTPUT_FILE [-b BUFFER_SIZE] [-s]
 
             Read a file and write its content into another.
 
@@ -162,8 +163,8 @@ USAGE (clap.py)
             Further information and usage examples can be found inside the
             documentation file for this script.
 
-        Inside the code you can use the given command-line arguments as follows,
-        e.g. to return each of them:
+        Inside the code you can use the given command-line arguments as
+        follows, e.g. to return each of them:
 
             print("Input file path:  %s" % args.input_file)
             print("Output file path: %s" % args.output_file)
