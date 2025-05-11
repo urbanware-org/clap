@@ -10,7 +10,7 @@
 # GitLab: https://gitlab.com/urbanware-org/clap
 #
 
-__version__ = "1.1.12"
+__version__ = "1.1.13"
 
 
 def get_version():
