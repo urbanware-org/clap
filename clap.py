@@ -174,8 +174,8 @@ class Parser():
         """
         if dependency is not None:
             if arg_value is None or str(arg_value) == "":
-                raise Exception("The '%s' argument depends on %s'." %
-                                (arg_name, dependency))
+                raise ValueError("The '%s' argument depends on %s'." %
+                                 (arg_name, dependency))
 
     def error(self, obj):
         """
