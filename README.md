@@ -32,13 +32,9 @@ The current version of *Clap* provides a parser object which can parse arguments
 
 ## Requirements
 
-In order to run the latest version of *Clap*, the *Python* 3.x framework (version 3.6 or higher) must be installed on the system.
+In order to use the module, *Python* 3.6 or higher must be installed.
 
-Version 1.1.11 is the last release that officially supports the *Python* 2.x framework.
-
-If you need a later version for the *Python* 2.x framework for whatever reason, you can try refactoring the syntax from *Python* 3.x to version 2.x using the *[3to2](https://pypi.python.org/pypi/3to2)* tool.
-
-However, there is no guarantee that this works properly or at all.
+If you need a version for *Python* 2 for whatever reason, you can try refactoring the syntax using the *[3to2](https://pypi.python.org/pypi/3to2)* tool. However, there is no guarantee that this works properly or at all, and support for this is not provided in any way.
 
 [Top](#clap)
 
