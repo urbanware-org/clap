@@ -12,6 +12,18 @@
 
 __version__ = "1.1.13"
 
+try:
+    from argparse import ArgumentParser
+    ARGPARSER_AVAILABLE = True
+except ImportError:
+    try:
+        from optparse import OptionParser
+        ARGPARSER_AVAILABLE = False
+    except ImportError as e:
+        raise ImportError(
+            "Neither 'argparse.ArgumentParser' nor 'optparse.OptionParser' "
+            "is available") from e
+
 
 def get_version():
     """
@@ -32,34 +44,20 @@ class Parser():
         else:
             self.conflict_handler_resolve = "error"
 
-        self.__is_argparser = True
-        try:
-            from argparse import ArgumentParser
+        self.__is_argparser = ARGPARSER_AVAILABLE
+        if self.__is_argparser:
             self.__arg_parser = ArgumentParser(add_help=False)
             self.__arg_grp_req = \
                 self.__arg_parser.add_argument_group("required arguments")
             self.__arg_grp_opt = \
                 self.__arg_parser.add_argument_group("optional arguments")
-            return
-        except ImportError:
-            # Failed to import the ArgumentParser module, so proceed with
-            # OptionParser as fallback
-            self.__is_argparser = False
-
-        try:
-            from optparse import OptionParser
+        else:
             self.__arg_parser = \
                 OptionParser(conflict_handler=self.conflict_handler_resolve)
             self.__arg_grp_req = \
                 self.__arg_parser.add_option_group("Required arguments")
             self.__arg_grp_opt = \
                 self.__arg_parser.add_option_group("Optional arguments")
-            return
-        except ImportError as e:
-            # This should never be the case
-            raise ImportError(
-                "Neither 'argparse.ArgumentParser' "
-                "nor 'optparse.OptionParser' is available") from e
 
     def add_avalue(self, arg_short, arg_long, arg_help, arg_dest, arg_default,
                    arg_required):
