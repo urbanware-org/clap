@@ -55,9 +55,11 @@ class Parser():
             self.__arg_grp_opt = \
                 self.__arg_parser.add_option_group("Optional arguments")
             return
-        except ImportError:
+        except ImportError as e:
             # This should never be the case
-            raise ImportError("Failed to initialize an argument parser.")
+            raise ImportError(
+                "Neither 'argparse.ArgumentParser' "
+                "nor 'optparse.OptionParser' is available") from e
 
     def add_avalue(self, arg_short, arg_long, arg_help, arg_dest, arg_default,
                    arg_required):
