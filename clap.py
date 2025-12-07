@@ -191,7 +191,7 @@ class Parser():
         if self.__is_argparser:
             args = self.__arg_parser.parse_args()
         else:
-            (args, values) = self.__arg_parser.parse_args()
+            (args, _) = self.__arg_parser.parse_args()
         return args
 
     def print_help(self):
