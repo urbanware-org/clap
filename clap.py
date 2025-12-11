@@ -12,17 +12,13 @@
 
 __version__ = "1.1.13"
 
+
 try:
-    from argparse import ArgumentParser
-    ARGPARSER_AVAILABLE = True
-except ImportError:
-    try:
-        from optparse import OptionParser
-        ARGPARSER_AVAILABLE = False
-    except ImportError as e:
-        raise ImportError(
-            "Neither 'argparse.ArgumentParser' nor 'optparse.OptionParser' "
-            "is available") from e
+    import argparse
+except ImportError as e:
+    raise ImportError(
+        "The module 'argparse' cannot be imported and 'optparse' is no "
+        "longer supported") from e
 
 
 def get_version():
@@ -37,27 +33,12 @@ class Parser():
         Project independent command-line argument parser class.
     """
 
-    def __init__(self, conflict_handler_resolve=True):
-        # The conflict handler is required for OptionParser, only
-        if conflict_handler_resolve:
-            self.conflict_handler_resolve = "resolve"
-        else:
-            self.conflict_handler_resolve = "error"
-
-        self.__is_argparser = ARGPARSER_AVAILABLE
-        if self.__is_argparser:
-            self.__arg_parser = ArgumentParser(add_help=False)
-            self.__arg_grp_req = \
-                self.__arg_parser.add_argument_group("required arguments")
-            self.__arg_grp_opt = \
-                self.__arg_parser.add_argument_group("optional arguments")
-        else:
-            self.__arg_parser = \
-                OptionParser(conflict_handler=self.conflict_handler_resolve)
-            self.__arg_grp_req = \
-                self.__arg_parser.add_option_group("Required arguments")
-            self.__arg_grp_opt = \
-                self.__arg_parser.add_option_group("Optional arguments")
+    def __init__(self):
+        self.__arg_parser = argparse.ArgumentParser(add_help=False)
+        self.__arg_grp_req = \
+            self.__arg_parser.add_argument_group("required arguments")
+        self.__arg_grp_opt = \
+            self.__arg_parser.add_argument_group("optional arguments")
 
     def add_avalue(self, arg_short, arg_long, arg_help, arg_dest, arg_default,
                    arg_required):
@@ -83,21 +64,13 @@ class Parser():
             else:
                 arg_help += f", default is {quotes}{arg_default}{quotes})"
 
-        if self.__is_argparser:
-            if arg_short is None:
-                obj.add_argument(arg_long, help=arg_help, dest=arg_dest,
-                                 default=arg_default, required=arg_required)
-            else:
-                obj.add_argument(arg_short, arg_long, help=arg_help,
-                                 dest=arg_dest, default=arg_default,
-                                 required=arg_required)
+        if arg_short is None:
+            obj.add_argument(arg_long, help=arg_help, dest=arg_dest,
+                             default=arg_default, required=arg_required)
         else:
-            if arg_short is None:
-                obj.add_option(arg_long, help=arg_help, dest=arg_dest,
-                               default=arg_default)
-            else:
-                obj.add_option(arg_short, arg_long, help=arg_help,
-                               dest=arg_dest, default=arg_default)
+            obj.add_argument(arg_short, arg_long, help=arg_help,
+                             dest=arg_dest, default=arg_default,
+                             required=arg_required)
 
     def add_predef(self, arg_short, arg_long, arg_help, arg_dest, arg_choices,
                    arg_required):
@@ -109,29 +82,13 @@ class Parser():
         else:
             obj = self.__arg_grp_opt
 
-        if self.__is_argparser:
-            if arg_short is None:
-                obj.add_argument(arg_long, help=arg_help, dest=arg_dest,
-                                 choices=arg_choices, required=arg_required)
-            else:
-                obj.add_argument(arg_short, arg_long, help=arg_help,
-                                 dest=arg_dest, choices=arg_choices,
-                                 required=arg_required)
+        if arg_short is None:
+            obj.add_argument(arg_long, help=arg_help, dest=arg_dest,
+                             choices=arg_choices, required=arg_required)
         else:
-            if arg_short is None:
-                obj.add_option(arg_long, help=arg_help, dest=arg_dest,
-                               choices=arg_choices)
-            else:
-                # The OptionParser does not print the values to choose from,
-                # so these have to be added manually to the description of
-                # the argument first
-                arg_help += " (choose from "
-                for item in arg_choices:
-                    arg_help += f"'{item}', "
-                arg_help = arg_help.rstrip(", ") + ")"
-
-                obj.add_option(arg_short, arg_long, help=arg_help,
-                               dest=arg_dest)
+            obj.add_argument(arg_short, arg_long, help=arg_help,
+                             dest=arg_dest, choices=arg_choices,
+                             required=arg_required)
 
     def add_switch(self, arg_short, arg_long, arg_help, arg_dest, arg_store,
                    arg_required):
@@ -149,21 +106,13 @@ class Parser():
         else:
             arg_store = "store_false"
 
-        if self.__is_argparser:
-            if arg_short is None:
-                obj.add_argument(arg_long, help=arg_help, dest=arg_dest,
-                                 action=arg_store, required=arg_required)
-            else:
-                obj.add_argument(arg_short, arg_long, help=arg_help,
-                                 dest=arg_dest, action=arg_store,
-                                 required=arg_required)
+        if arg_short is None:
+            obj.add_argument(arg_long, help=arg_help, dest=arg_dest,
+                             action=arg_store, required=arg_required)
         else:
-            if arg_short is None:
-                obj.add_option(arg_long, help=arg_help, dest=arg_dest,
-                               action=arg_store)
-            else:
-                obj.add_option(arg_short, arg_long, help=arg_help,
-                               dest=arg_dest, action=arg_store)
+            obj.add_argument(arg_short, arg_long, help=arg_help,
+                             dest=arg_dest, action=arg_store,
+                             required=arg_required)
 
     def dependency(self, arg_name, arg_value, dependency):
         """
@@ -188,11 +137,7 @@ class Parser():
         """
             Parse and return the command-line arguments.
         """
-        if self.__is_argparser:
-            args = self.__arg_parser.parse_args()
-        else:
-            (args, _) = self.__arg_parser.parse_args()
-        return args
+        return self.__arg_parser.parse_args()
 
     def print_help(self):
         """
