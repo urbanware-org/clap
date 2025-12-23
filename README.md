@@ -18,9 +18,9 @@ The *Clap* module is an easy-to-use command-line argument parser for *Python* pr
 
 ## Details
 
-Current versions of *Python* provide the `ArgumentParser` module to parse command-line arguments. However, older versions (such as *Python* 2.6 and below) only contain the deprecated `OptionParser` module.
+Initially, the *Clap* project merged the `ArgumentParser` and `OptionParser` command-line argument parsers in a single module that uses `ArgumentParser` as default and `OptionParser` as fallback.
 
-The *Clap* project merges both parsers in a single module with less configuration effort, using `ArgumentParser` as default and `OptionParser` as fallback.
+Meanwhile, the support for `OptionParser` has been removed, due to the fact, that *Clap* requires at least *Python* 3.6, which comes with the `ArgumentParser` module by default. So, what remains is a simple wrapper for `ArgumentParser`.
 
 The current version of *Clap* provides a parser object which can parse arguments...
 
@@ -33,8 +33,6 @@ The current version of *Clap* provides a parser object which can parse arguments
 ## Requirements
 
 In order to use the module, *Python* 3.6 or higher must be installed.
-
-If you need a version for *Python* 2 for whatever reason, you can try refactoring the syntax using the *[3to2](https://pypi.python.org/pypi/3to2)* tool. However, there is no guarantee that this works properly or at all, and support for this is not provided in any way.
 
 [Top](#clap)
 
@@ -56,6 +54,6 @@ You can contact me by sending an email to [dev@urbanware.org](mailto:dev@urbanwa
 
 *   The project name is an abbreviation for ***C****ommand* ***L****ine* ***A****grument* ***P****arser*.
 *   The first version uploaded on *GitHub* was *Clap* 1.1.8 built on January 15<sup>th</sup>, 2015.
-*   The module for *Python* 3 was initially created by converting the *Python* 2 module using the *2to3* tool. However, both files are identical except for the shebang.
+*   The module for *Python* 3 was initially created by converting the *Python* 2 module using the *2to3* tool. However, both files were identical except for the shebang.
 
 [Top](#clap)
