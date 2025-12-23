@@ -4,7 +4,7 @@ README (Clap)
     Project
 
         Clap
-        Version 1.1.13 (based on Python 3.x framework)
+        Version 1.1.13
         Copyright (c) 2025 by Ralf Kilian
 
         GitHub: https://github.com/urbanware-org/clap
