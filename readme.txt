@@ -5,7 +5,7 @@ README (Clap)
 
         Clap
         Version 1.1.13
-        Copyright (c) 2025 by Ralf Kilian
+        Copyright (c) 2026 by Ralf Kilian
 
         GitHub: https://github.com/urbanware-org/clap
         GitLab: https://gitlab.com/urbanware-org/clap
