@@ -10,7 +10,7 @@
 # GitLab: https://gitlab.com/urbanware-org/clap
 #
 
-__version__ = "1.1.13"
+__version__ = "1.2.0"
 
 
 try:
