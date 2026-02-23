@@ -160,9 +160,6 @@ USAGE (clap.py)
                                     buffer size in bytes (default is 4096)
               -s, --simulate        do not create the output file
 
-            Further information and usage examples can be found inside the
-            documentation file for this script.
-
         Inside the code you can use the given command-line arguments as
         follows, e.g. to return each of them:
 
