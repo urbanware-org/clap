@@ -34,6 +34,9 @@ The current version of *Clap* provides a parser object which can parse arguments
 
 In order to use the module, *Python* 3.6 or higher must be installed.
 
+> [!NOTE]
+> Since the core functionality itself has not changed, version 1.1.12 can still be used which supports older *Python* versions as well as `OptionParser`.
+
 [Top](#clap)
 
 ## Documentation
