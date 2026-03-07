@@ -20,7 +20,7 @@ The *Clap* module is an easy-to-use command-line argument parser for *Python* pr
 
 Initially, the *Clap* project merged the `ArgumentParser` (`argparse` module) and `OptionParser` (`optparse` module) command-line argument parsers in a single module that uses former as default and latter as fallback.
 
-Meanwhile, the support for `OptionParser` has been completely removed, as it is officially deprecated and will not be developed further. So, what remains is a simple wrapper for `ArgumentParser`.
+Meanwhile, the support for `OptionParser` has been completely removed, as it is officially deprecated and will not be developed further. So, what remains is a simple wrapper for `ArgumentParser`. However, older versions can still be used, see [requirements](#requirements) below for details.
 
 The current version of *Clap* provides a parser object which can parse arguments...
 
@@ -35,7 +35,7 @@ The current version of *Clap* provides a parser object which can parse arguments
 In order to use the module, *Python* 3.6 or higher must be installed.
 
 > [!NOTE]
-> Since the core functionality itself has not changed, version 1.1.12 can still be used which supports older *Python* versions as well as `OptionParser`.
+> Since the core functionality itself has not changed, version 1.1.12 can still be used, which supports older *Python* versions as well as `OptionParser`.
 
 [Top](#clap)
 
