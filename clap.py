@@ -28,7 +28,7 @@ def get_version():
     return __version__
 
 
-class Parser():
+class Parser:
     """
         Project independent command-line argument parser class.
     """
