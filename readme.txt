@@ -40,11 +40,6 @@ README (Clap)
 
         In order to use the module, Python 3.6 or higher must be installed.
 
-        If you need a version for Python 2 for whatever reason, you can try
-        refactoring the syntax using the 3to2 tool. However, there is no
-        guarantee that this works properly or at all, and support for this is
-        not provided in any way.
-
     Usage
 
         For fundamental documentation as well as some usage examples you may
