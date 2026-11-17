@@ -57,12 +57,7 @@ class Parser:
             else:
                 quotes = "'"
 
-            if arg_help.strip().endswith(")"):
-                arg_default = str(arg_default)
-                arg_help = arg_help.rstrip(")")
-                arg_help += f", default is {quotes}{arg_default}{quotes})"
-            else:
-                arg_help += f", default is {quotes}{arg_default}{quotes})"
+            arg_help += f", default is {quotes}{arg_default}{quotes}"
 
         if arg_short is None:
             obj.add_argument(arg_long, help=arg_help, dest=arg_dest,
