@@ -4,7 +4,7 @@ README (Clap)
     Project
 
         Clap
-        Version 1.2.0
+        Version 1.2.1
         Copyright (c) 2026 by Ralf Kilian
 
         GitHub: https://github.com/urbanware-org/clap
