@@ -109,14 +109,14 @@ class Parser:
                              dest=arg_dest, action=arg_store,
                              required=arg_required)
 
-    def dependency(self, arg_name, arg_value, dependency):
+    def dependency(self, arg_name, arg_value, depends_on):
         """
             Check the dependency of a command-line argument.
         """
-        if dependency is not None:
+        if depends_on is not None:
             if arg_value is None or str(arg_value) == "":
                 raise ValueError(
-                    f"The '{arg_name}' argument depends on '{dependency}'.")
+                    f"The '{arg_name}' argument depends on '{depends_on}'.")
 
     def error(self, obj):
         """
